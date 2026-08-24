@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ג'וני תור | הסעות פרימיום | מיניבוסים, אוטובוסים ו-ואנים | 24.6</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ג'וני תור - הסעות פרימיום במיניבוסים, אוטובוסים ו-ואנים נוחים ומאובזרים לעובדים, לאירועים ולנתב״ג. עמידה מלאה בזמנים, נהגים מקצועיים ושירות VIP 24.6.">
+    <meta name="keywords" content="הסעות, הסעות פרימיום, הסעות לנתבג, הסעות עובדים, הסעות לאירועים, מיניבוס VIP, אוטובוסים, ואן, ג'וני תור">
+    <meta name="author" content="ג'וני תור">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.johnnytours.co.il/">
+
+    <!-- Open Graph / WhatsApp Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.johnnytours.co.il/">
+    <meta property="og:title" content="ג'וני תור | חוויית הסעות פרימיום - מיניבוסים, אוטובוסים ו-ואנים">
+    <meta property="og:description" content="נסיעות VIP, עמידה מוחלטת בזמנים, צי רכבים חדיש ומפואר 24.6. לחצו לקבלת הצעת מחיר בווצאפ!">
+    <meta property="og:locale" content="he_IL">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Rubik:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BusOrCoach",
+      "name": "ג'וני תור - הסעות פרימיום",
+      "telephone": "+972587015470",
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "1200"
+      },
+      "description": "שירות הסעות פרימיום במיניבוסים, אוטובוסים ו-ואנים לנתב״ג, אירועים ועובדים."
+    }
+    </script>
+
+    <style>
+        /* ==========================================
+           1. VARIABLES & RESET
+           ========================================== */
+        :root {
+            --primary-gold: #D4AF37;
+            --accent-orange: #FF6B00;
+            --accent-yellow: #FFC72C;
+            --dark-bg: #111111;
+            --dark-card: #1A1A1A;
+            --light-bg: #FAFAFA;
+            --text-dark: #1F2937;
+            --text-light: #FFFFFF;
+            --text-muted: #9CA3AF;
+            --gradient-gold: linear-gradient(135deg, #FFC72C 0%, #FF6B00 100%);
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
+            --shadow-gold: 0 10px 25px rgba(255, 107, 0, 0.25);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            
+            /* Footer Variables */
+            --bg-dark: #090d16;
+            --accent-gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+
+        /* Accessibility Classes Added Dynamically */
+        body.acc-grayscale { filter: grayscale(100%); }
+        body.acc-high-contrast { filter: contrast(150%); }
+        body.acc-large-text { font-size: 19px; }
+
+        h1, h2, h3, h4 { font-family: 'Rubik', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        :focus-visible {
+            outline: 3px solid var(--accent-orange);
+            outline-offset: 3px;
+        }
+
+        /* ==========================================
+           2. UTILITIES & BUTTONS
+           ========================================== */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .text-center { text-align: center; }
+        .text-gold { color: var(--accent-yellow); }
+        .text-gradient {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--gradient-gold);
+            color: #fff;
+            box-shadow: var(--shadow-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 107, 0, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-dark);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-gold);
+            color: #000;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: #555;
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* ==========================================
+           3. HEADER & NAV
+           ========================================== */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(17, 17, 17, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span { color: var(--accent-yellow); }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover { color: var(--accent-yellow); }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* ==========================================
+           4. HERO SECTION
+           ========================================== */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 160px 0 100px 0;
+            color: var(--text-light);
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            background: rgba(255, 199, 44, 0.15);
+            border: 1px solid var(--accent-yellow);
+            color: var(--accent-yellow);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.25;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #E5E7EB;
+            margin-bottom: 35px;
+        }
+
+        /* Fleet Type Badges */
+        .fleet-types {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .fleet-tag {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+        }
+
+        /* ==========================================
+           5. STATS COUNTER
+           ========================================== */
+        .stats-section {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+            border-radius: var(--radius-lg);
+            padding: 40px 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 199, 44, 0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent-yellow);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================
+           6. ABOUT SECTION
+           ========================================== */
+        .about-section {
+            padding: 90px 0;
+            background: #fff;
+        }
+
+        .about-card {
+            background: var(--light-bg);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            border-right: 6px solid var(--accent-orange);
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 40px;
+        }
+
+        .about-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            font-size: 1.1rem;
+            color: #4B5563;
+            margin-bottom: 15px;
+        }
+
+        /* ==========================================
+           7. FEATURES / ADVANTAGES
+           ========================================== */
+        .features-section {
+            padding: 90px 0;
+            background: linear-gradient(180deg, #F9FAFB 0%, #F3F4F6 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 35px 25px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border: 1px solid #E5E7EB;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: var(--accent-yellow);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 199, 44, 0.15);
+            color: var(--accent-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 20px auto;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #6B7280;
+            font-size: 0.98rem;
+        }
+
+        /* ==========================================
+           8. SERVICES SECTION
+           ========================================== */
+        .services-section {
+            padding: 90px 0;
+            background: #fff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid #E5E7EB;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .service-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-body h3 {
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+        }
+
+        .service-body p {
+            color: #4B5563;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* ==========================================
+           9. REVIEWS SECTION
+           ========================================== */
+        .reviews-section {
+            padding: 90px 0;
+            background: var(--dark-bg);
+            color: var(--text-light);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background: var(--dark-card);
+            border: 1px solid #333;
+            padding: 30px;
+            border-radius: var(--radius-md);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .stars {
+            color: var(--accent-yellow);
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            color: #D1D5DB;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .reviewer-info h4 {
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .reviewer-info span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================
+           10. QUOTE FORM SECTION
+           ========================================== */
+        .quote-section {
+            padding: 90px 0;
+            background: linear-gradient(180deg, rgba(255, 199, 44, 0.08) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .quote-box {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            padding: 45px 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            max-width: 750px;
+            margin: 0 auto;
+            border: 1px solid #F3E5AB;
+        }
+
+        .form-group { margin-bottom: 20px; }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1.5px solid #E5E7EB;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-orange);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* ==========================================
+           11. ACCESSIBILITY MODAL WIDGET
+           ========================================== */
+        .acc-trigger-btn {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background: #0056B3;
+            color: #fff;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 9999;
+            border: 2px solid #fff;
+            transition: var(--transition);
+        }
+
+        .acc-trigger-btn:hover { transform: scale(1.08); }
+
+        .acc-modal {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            left: 25px;
+            width: 300px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+            border: 1px solid #E5E7EB;
+            z-index: 10000;
+            padding: 20px;
+            direction: rtl;
+        }
+
+        .acc-modal.open { display: block; }
+
+        .acc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #E5E7EB;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .acc-header h4 { font-size: 1.1rem; color: var(--text-dark); }
+
+        .acc-close {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #6B7280;
+        }
+
+        .acc-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .acc-btn {
+            background: #F3F4F6;
+            border: 1px solid #D1D5DB;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: right;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .acc-btn:hover {
+            background: #E5E7EB;
+            border-color: #9CA3AF;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        /* ==========================================
+           12. CUSTOM FOOTER STYLES (PROVIDED)
+           ========================================== */
+        .site-footer {
+            position: relative;
+            background: var(--bg-dark);
+            padding: 32px 24px;
+            box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #3b82f6 50%, transparent 100%);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-main-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .footer-title {
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-subtitle {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--accent-gradient);
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .cta-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+        }
+
+        .cta-btn:hover svg { transform: translateX(-4px); }
+
+        .footer-bottom-row {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 16px;
+            text-align: center;
+        }
+
+        .credit-text {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .credit-text strong {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        /* ==========================================
+           13. MEDIA QUERIES
+           ========================================== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1.05rem; }
+            .stats-grid { grid-template-columns: 1fr; gap: 25px; }
+            .form-row { grid-template-columns: 1fr; }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(17,17,17,0.98);
+                flex-direction: column;
+                justify-content: center;
+                transition: var(--transition);
+            }
+
+            .nav-menu.active { right: 0; }
+            .menu-toggle { display: block; }
+
+            .acc-trigger-btn { bottom: 20px; left: 15px; width: 48px; height: 48px; font-size: 1.3rem; }
+            .acc-modal { left: 15px; bottom: 80px; width: calc(100vw - 30px); }
+            .whatsapp-float { bottom: 20px; right: 15px; width: 50px; height: 50px; font-size: 1.6rem; }
+
+            .footer-main-row {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-info { align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Nav -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo" aria-label="ג'וני תור - דף הבית">
+                <i class="fa-solid fa-van-shuttle text-gold"></i>
+                ג'וני <span>תור</span>
+            </a>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="פתח תפריט ניווט">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#about" class="nav-link">אודות</a>
+                <a href="#features" class="nav-link">יתרונות</a>
+                <a href="#services" class="nav-link">שירותים</a>
+                <a href="#reviews" class="nav-link">המלצות</a>
+                <a href="#quote" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.95rem;">הצעת מחיר בווצאפ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="container hero-content">
+                <span class="hero-badge"><i class="fa-solid fa-star"></i> שירות הסעות פרימיום 24.6</span>
+                <h1>הסעות VIP מאובזרות לעובדים, לאירועים ולנתב״ג</h1>
+                
+                <div class="fleet-types">
+                    <span class="fleet-tag"><i class="fa-solid fa-van-shuttle text-gold"></i> מיניבוסים</span>
+                    <span class="fleet-tag"><i class="fa-solid fa-bus text-gold"></i> אוטובוסים</span>
+                    <span class="fleet-tag"><i class="fa-solid fa-car text-gold"></i> ואנים (Vans)</span>
+                </div>
+
+                <p>עמידה מלאה בזמנים, נהגים מקצועיים ושירות אישי שהופך כל נסיעה לחוויה רגועה ויוקרתית.</p>
+                <a href="#quote" class="btn btn-primary">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    אני רוצה לקבל הצעת מחיר עכשיו
+                </a>
+            </div>
+        </section>
+
+        <!-- Stats Counter -->
+        <section class="container">
+            <div class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>15+</h3>
+                        <p>שנות ניסיון מקצועי</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>1,200+</h3>
+                        <p>נסיעות VIP מוצלחות</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>98%</h3>
+                        <p>שביעות רצון לקוחות</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title">לא צריך לבחור בין מחיר טוב לשירות טוב – <span class="text-gradient">כשאפשר את שניהם!</span></h2>
+                </div>
+
+                <div class="about-card" style="margin-top: 40px;">
+                    <p>אם הזמנתם פעם הסעה ויצאתם בתחושת תסכול, אתם לא לבד. נהג שמאחר, רכב שלא מריח טוב, יחס קר… זה קורה יותר מדי פעמים, ואיפשהו בדרך שכחנו שנסיעה צריכה להיות פשוטה, נוחה ונעימה.</p>
+                    <h3 style="color: var(--accent-orange); margin-top: 15px;">בג'וני תור החלטנו לשנות את זה</h3>
+                    <p>ראינו איך חברות הסעות מאכזבות לקוחות, ולכן החלטנו לבנות שירות שעובד אחרת: כזה שמחזיר את השקט, האמון, והנוחות, כמו שמגיע לכם.</p>
+                </div>
+
+                <div class="text-center" style="max-width: 850px; margin: 0 auto;">
+                    <p style="font-size: 1.25rem; font-weight: 700;">
+                        כשאתם בוחרים בנו, אתם לא מזמינים הסעה. אתם מזמינים <span class="text-gradient">חוויית נסיעה שלמה</span> עם תיאום פשוט, שירות אישי והתחייבות להגעה בזמן.
+                    </p>
+                    <p style="margin-top: 15px; color: #6B7280;">
+                        יש סיבה שיותר ויותר לקוחות בוחרים בנו פעם אחר פעם. לא בגלל המחיר, אלא בגלל מה שהם מרגישים בכל נסיעה. זו לא עוד נסיעה רגילה, זו חוויה שבה הכול פשוט עובד. הנהג שמגיע בדיוק בזמן, הרכב שממתין נקי, ממוזג ומוכן, והחיוך שמלווה אתכם מהרגע הראשון ועד היעד.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section" id="features">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title">מה הופך אותנו לשירות הסעות <span class="text-gradient">שלא דומה לאף אחד אחר?</span></h2>
+                    <p class="section-subtitle">אצלנו כל נסיעה היא התחייבות לאיכות, אמינות ושקט נפשי. אנחנו מאמינים שנסיעה טובה מתחילה הרבה לפני שהמנוע נדלק.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
+                        <h3>זמינות מלאה 24.6</h3>
+                        <p>יום, לילה או חג, תמיד יש מי שעונה, מתאם ומוודא שהכול מתקתק כמו שעון. זמינים עבורכם 24.6.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-bus"></i></div>
+                        <h3>צי חדשני ומאובזר</h3>
+                        <p>כל מיניבוס, אוטובוס או ואן עובר ניקוי, חיטוי ובדיקה לפני כל נסיעה, כדי שתרגישו בבית.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div>
+                        <h3>דיוק מוחלט</h3>
+                        <p>אצלנו “בדיוק בזמן” זה לא הבטחה, זו דרך עבודה. הנהג שלכם יהיה שם תמיד לחכות לכם.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-user-tie"></i></div>
+                        <h3>שירות אישי</h3>
+                        <p>אנחנו לא שולחים סתם “נהג”, אנחנו שולחים בן אדם שמבין אותך ואת הצרכים שלך.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title">השירות שלנו נבנה <span class="text-gradient">בדיוק בשבילכם</span></h2>
+                    <p class="section-subtitle">אם אתם מחפשים הסעה שלא רק תגיע בזמן, אלא תגרום לכם להרגיש רגועים, אתם במקום הנכון.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="service-body">
+                            <h3>קבוצות פרטיות</h3>
+                            <p>טיולים, ימי כיף, חופשות משפחתיות או סופי שבוע עם חברים, אנחנו נדאג שתיהנו מהדרך לא פחות מהיעד.</p>
+                            <a href="#quote" class="btn btn-outline" style="width: 100%;">להצעת מחיר</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="service-body">
+                            <h3>אירועים מרגשים</h3>
+                            <p>פרטיים או עסקיים הדורשים הגעה נוחה ומאורגנת. כדי שכולם יגיעו בזמן, רגועים ומוכנים לרגע הגדול.</p>
+                            <a href="#quote" class="btn btn-outline" style="width: 100%;">להצעת מחיר</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="service-body">
+                            <h3>הגעה וחזרה לנתב״ג</h3>
+                            <p>מתחילים את הנסיעה בראש שקט, אנחנו נגיע בזמן, נעזור עם הציוד ונוודא שכל פרט קטן מתוקתק.</p>
+                            <a href="#quote" class="btn btn-outline" style="width: 100%;">להצעת מחיר</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="service-body">
+                            <h3>הסעות עובדים</h3>
+                            <p>פתרון אמין, מסודר ומקצועי לעובדים שלכם. עם עמידה קבועה בזמנים, רכבים חדשים ונהגים קבועים.</p>
+                            <a href="#quote" class="btn btn-outline" style="width: 100%;">להצעת מחיר</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="reviews-section" id="reviews">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title text-gold">אלפי נוסעים כבר בחרו בנו - <span style="color: #fff;">וזה לא במקרה</span></h2>
+                    <p class="section-subtitle" style="color: #9CA3AF;">אנחנו יכולים לספר הרבה על השירות שלנו, אבל האמת? הלקוחות שלנו עושים את זה הרבה יותר טוב מאיתנו.</p>
+                </div>
+
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="review-text">“אחרי כמה אכזבות מחברות הסעות אחרות סוף סוף מצאתי מישהו שאפשר לסמוך עליו. הגיעו בזמן, הרכב היה מצוחצח, והנהג היה פשוט מקסים. שירות כמו שצריך.״</p>
+                        <div class="reviewer-info">
+                            <h4>לירון ד.</h4>
+                            <span>רמת השרון</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="review-text">“אני מזמין מהם הסעות עובדים כבר כמעט שנה, לא איחרו אפילו פעם אחת. היחס אישי, התקשורת קלה, והכול עובד כמו שעון. ממליץ בחום לכל עסק שרוצה שקט בראש.”</p>
+                        <div class="reviewer-info">
+                            <h4>יוסי ב.</h4>
+                            <span>מנהל תפעול, תל אביב</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="review-text">“הזמנו הסעה לחתונה של הבת שלי והכול היה מושלם. הגיעו בזמן, הרכב היה נעים ונקי, והנהג היה סבלני ורגוע. הכל היה פשוט ללא בעיות, אני ממליצה!.”</p>
+                        <div class="reviewer-info">
+                            <h4>חנה ל.</h4>
+                            <span>ראשון לציון</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="review-text">“יצאתי לנסיעה לנתב״ג בארבע בבוקר, הנהג חיכה למטה בדיוק בדקה שקבענו. רכב חדש, נקי, מוזיקה, ואפילו בקבוק מים מוכן. מרגישים שהם באמת חושבים על כל פרט.”</p>
+                        <div class="reviewer-info">
+                            <h4>עידן ר.</h4>
+                            <span>הרצליה</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="review-text">“אני מפיקה אירועים, ועבדתי עם עשרות חברות הסעות. אף אחת לא הייתה מדויקת, רגועה ושירותית כמו גוני תור. הם מתאמים הכול מראש, תמיד זמינים, ותמיד עם חיוך.”</p>
+                        <div class="reviewer-info">
+                            <h4>שני מ.</h4>
+                            <span>הפקות אירועים, תל אביב</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="review-text">“עשינו יום גיבוש עם הצוות וההסעה הייתה חלק בלתי נפרד מהחוויה. נהג מקצועי, רכב מפנק, הכול בזמן ובאווירה טובה. כבר סגרנו איתם את הנסיעה הבאה.”</p>
+                        <div class="reviewer-info">
+                            <h4>רועי ש.</h4>
+                            <span>מנהל צוות, מודיעין</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Section Sending to WhatsApp -->
+        <section class="quote-section" id="quote">
+            <div class="container">
+                <div class="quote-box">
+                    <div class="text-center">
+                        <h2 class="section-title">אני רוצה לקבל <span class="text-gradient">הצעת מחיר עכשיו</span></h2>
+                        <p style="color: #6B7280; margin-bottom: 30px;">מלאו את הפרטים וההודעה תועבר מיידית לווצאפ של ג'וני תור לקבלת הצעה מהירה!</p>
+                    </div>
+
+                    <form id="whatsappQuoteForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">שם מלא *</label>
+                                <input type="text" id="name" class="form-control" placeholder="ישראל ישראלי" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">טלפון ליצירת קשר *</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="050-0000000" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="vehicleType">סוג הרכב המבוקש</label>
+                                <select id="vehicleType" class="form-control">
+                                    <option value="מיניבוס">מיניבוס</option>
+                                    <option value="אוטובוס">אוטובוס</option>
+                                    <option value="ואן (Van)">ואן (Van VIP)</option>
+                                    <option value="לא בטוח / בהתאם לכמות הנוסעים">לא בטוח - ייעוץ קצר</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="serviceType">סוג השירות</label>
+                                <select id="serviceType" class="form-control">
+                                    <option value="הסעה לנתב״ג / מנתב״ג">הסעה לנתב״ג / מנתב״ג</option>
+                                    <option value="אירועים מרגשים">אירוע</option>
+                                    <option value="הסעות עובדים">הסעות עובדים</option>
+                                    <option value="קבוצות פרטיות / טיול">קבוצות פרטיות / טיולים</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="passengers">מספר נוסעים</label>
+                                <input type="number" id="passengers" class="form-control" placeholder="לדוגמה: 15">
+                            </div>
+                            <div class="form-group">
+                                <label for="rideDate">תאריך הנסיעה המבוקש</label>
+                                <input type="text" id="rideDate" class="form-control" placeholder="DD/MM/YYYY">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="details">פרטים נוספים (מסלול, שעה, נקודות איסוף וציוד)</label>
+                            <textarea id="details" class="form-control" rows="3" placeholder="פרטו מאיפה לאן ומתי תרצו לנסוע..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.2rem; padding: 18px;">
+                            <i class="fa-brands fa-whatsapp" style="font-size: 1.5rem;"></i>
+                            שליחת בקשה להצעת מחיר בווצאפ
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Custom Footer Included -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-main-row">
+                <div class="footer-info">
+                    <div class="footer-title">רוצים אתר מעוצב וממיר בדיוק כזה?</div>
+                    <div class="footer-subtitle">עיצוב חווית משתמש מתקדמת ופיתוח ברמה הגבוהה ביותר</div>
+                </div>
+                <a href="#quote" class="cta-btn">
+                    <span>רוצים אתר כזה? לחצו כאן!</span>
+                    <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </a>
+            </div>
+            <div class="footer-bottom-row">
+                <div class="credit-text">
+                    האתר נבנה על ידי <strong>NetVibeMedia</strong> • Noam Naftali
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/972587015470?text=שלום%20ג'וני%20תור,%20אשמח%20לקבל%20הצעת%20מחיר%20להסעה" class="whatsapp-float" target="_blank" aria-label="פנייה בוואטסאפ">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Accessibility Widget Trigger Button -->
+    <button class="acc-trigger-btn" id="accTrigger" aria-label="תפריט נגישות">
+        <i class="fa-solid fa-universal-access"></i>
+    </button>
+
+    <!-- Dropdown Accessibility Modal -->
+    <div class="acc-modal" id="accModal">
+        <div class="acc-header">
+            <h4><i class="fa-solid fa-universal-access"></i> תפריט נגישות</h4>
+            <button class="acc-close" id="accClose">&times;</button>
+        </div>
+        <div class="acc-options">
+            <button class="acc-btn" onclick="toggleAccClass('acc-large-text')">
+                <i class="fa-solid fa-text-height"></i> הגדלת טקסט
+            </button>
+            <button class="acc-btn" onclick="toggleAccClass('acc-grayscale')">
+                <i class="fa-solid fa-eye-slash"></i> גווני אפור
+            </button>
+            <button class="acc-btn" onclick="toggleAccClass('acc-high-contrast')">
+                <i class="fa-solid fa-circle-half-stroke"></i> ניגודיות גבוהה
+            </button>
+            <button class="acc-btn" onclick="resetAcc()" style="background: #FFE4E6; border-color: #FECDD3; color: #9F1239;">
+                <i class="fa-solid fa-rotate-left"></i> איפוס הגדרות
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Navigation Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.className = navMenu.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.querySelector('i').className = 'fa-solid fa-bars';
+            });
+        });
+
+        // WhatsApp Form Submit Logic
+        document.getElementById('whatsappQuoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const vehicleType = document.getElementById('vehicleType').value;
+            const serviceType = document.getElementById('serviceType').value;
+            const passengers = document.getElementById('passengers').value || 'לא צוין';
+            const rideDate = document.getElementById('rideDate').value || 'לא צוין';
+            const details = document.getElementById('details').value || 'אין';
+
+            const whatsappMessage = `שלום ג'וני תור, אשמח לקבל הצעת מחיר להסעה:%0A%0A` +
+                `*שם:* ${encodeURIComponent(name)}%0A` +
+                `*טלפון:* ${encodeURIComponent(phone)}%0A` +
+                `*סוג רכב מבוקש:* ${encodeURIComponent(vehicleType)}%0A` +
+                `*סוג השירות:* ${encodeURIComponent(serviceType)}%0A` +
+                `*מספר נוסעים:* ${encodeURIComponent(passengers)}%0A` +
+                `*תאריך:* ${encodeURIComponent(rideDate)}%0A` +
+                `*פרטים נוספים:* ${encodeURIComponent(details)}`;
+
+            const targetNum = '972587015470';
+            window.open(`https://wa.me/${targetNum}?text=${whatsappMessage}`, '_blank');
+        });
+
+        // Accessibility Modal Logic
+        const accTrigger = document.getElementById('accTrigger');
+        const accModal = document.getElementById('accModal');
+        const accClose = document.getElementById('accClose');
+
+        accTrigger.addEventListener('click', () => {
+            accModal.classList.toggle('open');
+        });
+
+        accClose.addEventListener('click', () => {
+            accModal.classList.remove('open');
+        });
+
+        function toggleAccClass(className) {
+            document.body.classList.toggle(className);
+        }
+
+        function resetAcc() {
+            document.body.classList.remove('acc-grayscale', 'acc-high-contrast', 'acc-large-text');
+        }
+    </script>
+</body>
+</html>

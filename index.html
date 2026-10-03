@@ -1,781 +1,498 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl" class="scroll-smooth">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ג'וני תור | חווית VIP על גלגלים - הסעות פרימיום</title>
-    
-    <!-- Tailwind CSS -->
+    <title>ג'וני תור - הסעות פרימיום ו-VIP</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts: Heebo & Rubik -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
-
-    <!-- Tailwind Custom Configuration -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        gold: {
-                            100: '#FFF9E6',
-                            300: '#F5D061',
-                            400: '#E6B830',
-                            500: '#D4AF37', // Classic Metallic Gold
-                            600: '#AA820A',
-                            700: '#805E00',
+                        navy: {
+                            900: '#0A1128',
+                            800: '#1C2541',
+                            700: '#273459',
                         },
-                        dark: {
-                            900: '#09090b',
-                            800: '#121215',
-                            700: '#1c1c21',
-                            600: '#282830'
+                        gold: {
+                            400: '#F39C12',
+                            500: '#D4AC0D',
+                            600: '#B7950B',
                         }
                     },
                     fontFamily: {
-                        sans: ['Heebo', 'Rubik', 'sans-serif'],
-                    },
-                    animation: {
-                        'float': 'floating 3s ease-in-out infinite',
-                        'glow': 'glowing 2s infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        floating: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-12px)' },
-                        },
-                        glowing: {
-                            '0%, 100%': { opacity: 0.8, boxShadow: '0 0 15px rgba(212,175,55,0.4)' },
-                            '50%': { opacity: 1, boxShadow: '0 0 25px rgba(212,175,55,0.8)' },
-                        }
+                        sans: ['Rubik', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-
-    <!-- Custom Styles & Accessibility Overrides -->
     <style>
-        body {
-            font-family: 'Heebo', sans-serif;
-            background-color: #09090b;
-            color: #f4f4f5;
-            overflow-x: hidden;
+        html {
+            scroll-behavior: smooth;
         }
-
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #FFF9E6 0%, #D4AF37 50%, #AA820A 100%);
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #F39C12 0%, #D4AC0D 100%);
+        }
+        
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #F39C12 0%, #F1C40F 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .gold-border-gradient {
-            border-image: linear-gradient(to bottom right, #D4AF37, #282830) 1;
+        .hero-bg {
+            background: linear-gradient(rgba(10, 17, 40, 0.85), rgba(10, 17, 40, 0.95)), url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
         }
 
-        .gold-button {
-            background: linear-gradient(135deg, #D4AF37 0%, #AA820A 100%);
-            transition: all 0.3s ease;
-        }
-        .gold-button:hover {
-            background: linear-gradient(135deg, #F5D061 0%, #D4AF37 100%);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        .floating-badge {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 10px 16px;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            text-decoration: none;
+            direction: rtl;
+            user-select: none;
+            animation: floating 3s ease-in-out infinite;
+            transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
         }
 
-        /* Promotion Floating Tag Hover State */
-        .promo-tag {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .promo-tag:hover {
-            background-color: #10B981 !important;
-            color: #ffffff !important;
-            transform: scale(1.08) translateY(-5px) !important;
-            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4) !important;
+        .badge-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
         }
 
-        /* Accessibility Classes */
-        .access-high-contrast {
-            background-color: #000000 !important;
-            color: #FFFF00 !important;
+        .badge-title, .badge-action {
+            font-family: 'Rubik', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.2;
         }
-        .access-high-contrast * {
-            background-color: #000000 !important;
-            color: #FFFF00 !important;
-            border-color: #FFFF00 !important;
+
+        .badge-title {
+            font-size: 12px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
         }
-        .access-inverted {
-            filter: invert(100%);
-            background-color: #fff;
+
+        .badge-action {
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
         }
-        .access-grayscale {
-            filter: grayscale(100%);
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #38bdf8;
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
         }
-        .access-readable-font * {
-            font-family: 'Arial', sans-serif !important;
+
+        @keyframes floating {
+            0% { 
+                transform: translateY(0px); 
+            }
+            50% { 
+                transform: translateY(-8px); 
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45); 
+            }
+            100% { 
+                transform: translateY(0px); 
+            }
         }
-        .access-highlight-links a {
-            text-decoration: underline !important;
-            background-color: #FFFF00 !important;
-            color: #000 !important;
-            font-weight: bold !important;
-        }
-        .access-big-cursor, .access-big-cursor * {
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="%23D4AF37"><path d="M7 2l12 11.2-5.8.5 3.3 7.3-2.2 1-3.2-7.4L7 19.5V2z"/></svg>'), auto !important;
-        }
-        .stop-animations * {
-            animation: none !important;
-            transition: none !important;
+
+        .floating-badge:hover {
+            animation-play-state: paused;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            background-color: rgba(30, 30, 30, 0.95);
+            border-color: rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
-<body class="relative min-h-screen">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
 
-    <!-- 1. Top Bar / Promo Banner -->
-    <div class="bg-gradient-to-r from-gold-700 via-gold-500 to-gold-700 text-dark-900 font-bold py-2.5 px-4 text-center text-sm md:text-base sticky top-0 z-50 shadow-lg flex items-center justify-center gap-2">
-        <i class="fa-solid fa-crown text-dark-900 animate-bounce"></i>
-        <span>לחודש הקרוב בלבד | חווית VIP על גלגלים, עכשיו ב-30% הנחה!</span>
-        <i class="fa-solid fa-crown text-dark-900 animate-bounce hidden sm:inline-block"></i>
+    <!-- Top Discount Bar -->
+    <div class="gold-gradient text-navy-900 font-bold py-2 px-4 text-center text-sm md:text-base shadow-md sticky top-0 z-50">
+        🔥 לחודש הקרוב בלבד: חווית VIP על גלגלים עכשיו ב-30% הנחה!
     </div>
 
-    <!-- Header / Nav -->
-    <header class="bg-dark-800/80 backdrop-blur-md border-b border-gold-500/20 sticky top-[41px] z-40">
+    <!-- Header / Navbar -->
+    <header class="bg-navy-900 text-white border-b border-navy-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#" class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-full border-2 border-gold-500 flex items-center justify-center bg-dark-900">
-                    <i class="fa-solid fa-van-shuttle text-gold-500 text-2xl"></i>
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <i class="fa-solid fa-van-shuttle text-gold-400 text-3xl"></i>
+                <div class="text-2xl font-extrabold tracking-wider">
+                    ג'וני <span class="text-gold-400">תור</span>
                 </div>
-                <div>
-                    <span class="text-2xl font-black tracking-wider text-white">ג'וני <span class="gold-gradient-text">תור</span></span>
-                    <span class="block text-xs text-gold-400 tracking-widest uppercase">VIP Transportation</span>
-                </div>
-            </a>
-
-            <!-- Quick Contact / CTA -->
-            <div class="flex items-center gap-4">
-                <a href="tel:0587015470" class="hidden md:flex items-center gap-2 text-gold-400 hover:text-gold-300 font-semibold transition">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>058-701-5470</span>
-                </a>
-                <a href="#contact-form" class="gold-button text-dark-900 font-bold px-5 py-2.5 rounded-full text-sm md:text-base shadow-lg">
-                    הצעת מחיר מהירה
-                </a>
             </div>
+            
+            <nav class="hidden md:flex space-x-8 space-x-reverse text-sm font-medium">
+                <a href="#about" class="hover:text-gold-400 transition-colors">אודות</a>
+                <a href="#features" class="hover:text-gold-400 transition-colors">מה הופך אותנו למיוחדים</a>
+                <a href="#services" class="hover:text-gold-400 transition-colors">השירותים שלנו</a>
+                <a href="#testimonials" class="hover:text-gold-400 transition-colors">המלצות</a>
+            </nav>
+
+            <a href="#quote-form" class="gold-gradient text-navy-900 font-bold px-5 py-2.5 rounded-full hover:opacity-90 transition-all shadow-lg text-sm">
+                הצעת מחיר מהירה
+            </a>
         </div>
     </header>
 
-    <!-- 2. Hero Section -->
-    <section class="relative py-20 md:py-32 overflow-hidden bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900">
-        <!-- Background Decorative Glows -->
-        <div class="absolute top-1/4 right-10 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-10 left-10 w-80 h-80 bg-gold-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-16 md:py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
+                    <div class="inline-block bg-gold-400/20 border border-gold-400/40 text-gold-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-2">
+                        ⭐ הסעות פרימיום במיניבוסים מפוארים
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+                        חווית VIP על גלגלים,<br>
+                        <span class="text-gold-gradient">עכשיו ב-30% הנחה</span>
+                    </h1>
+                    <p class="text-slate-300 text-lg md:text-xl max-w-2xl leading-relaxed">
+                        הסעות פרימיום במיניבוסים נוחים ומאובזרים לעובדים, לאירועים ולנתב״ג. עמידה מלאה בזמנים, נהגים מקצועיים ושירות אישי שהופך כל נסיעה לחוויה.
+                    </p>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-sm font-medium mb-6">
-                <i class="fa-solid fa-star text-gold-400"></i>
-                <span>סטנדרט חדש בהסעות פרימיום בישראל</span>
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-700/60 max-w-lg mx-auto lg:mx-0">
+                        <div class="bg-navy-800/80 backdrop-blur border border-navy-700 p-4 rounded-xl text-center">
+                            <div class="text-2xl md:text-3xl font-extrabold text-gold-400">+15</div>
+                            <div class="text-xs md:text-sm text-slate-300">שנות ניסיון</div>
+                        </div>
+                        <div class="bg-navy-800/80 backdrop-blur border border-navy-700 p-4 rounded-xl text-center">
+                            <div class="text-2xl md:text-3xl font-extrabold text-gold-400">+1,200</div>
+                            <div class="text-xs md:text-sm text-slate-300">נסיעות VIP</div>
+                        </div>
+                        <div class="bg-navy-800/80 backdrop-blur border border-navy-700 p-4 rounded-xl text-center">
+                            <div class="text-2xl md:text-3xl font-extrabold text-gold-400">98%</div>
+                            <div class="text-xs md:text-sm text-slate-300">שביעות רצון</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Form -->
+                <div id="quote-form" class="lg:col-span-5">
+                    <div class="bg-white text-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl border-t-4 border-gold-400">
+                        <h3 class="text-2xl font-bold text-navy-900 mb-2 text-center">קבלת הצעת מחיר עכשיו</h3>
+                        <p class="text-slate-500 text-sm text-center mb-6">מלאו את הפרטים ונחזור אליכם תוך דקות</p>
+                        
+                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('תודה! פרטיך התקבלו, נחזור אליך בהקדם.');">
+                            <div>
+                                <label class="block text-sm font-semibold mb-1 text-slate-700">שם מלא</label>
+                                <input type="text" required placeholder="ישראל ישראלי" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-gold-400 focus:outline-none text-slate-800">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-1 text-slate-700">מספר טלפון</label>
+                                <input type="tel" required placeholder="050-0000000" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-gold-400 focus:outline-none text-slate-800">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-1 text-slate-700">סוג השירות</label>
+                                <select class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-gold-400 focus:outline-none text-slate-800 bg-white">
+                                    <option>הסעה לנתב״ג</option>
+                                    <option>הסעות עובדים</option>
+                                    <option>אירועים מרגשים</option>
+                                    <option>קבוצות פרטיות וטיולים</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full gold-gradient text-navy-900 text-lg font-bold py-3.5 rounded-lg hover:opacity-95 transition-all shadow-md mt-2">
+                                אני רוצה לקבל הצעת מחיר עכשיו! ⚡
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
+        </div>
+    </section>
+
+    <!-- Problem & Solution Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-gold-600 font-bold tracking-wide uppercase text-sm">הסיפור שלנו</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-2 mb-6">
+                לא צריך לבחור בין מחיר טוב לשירות טוב כשאפשר את שניהם!
+            </h2>
             
-            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-6">
-                חווית <span class="gold-gradient-text">VIP</span> על גלגלים
-            </h1>
-            
-            <p class="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed mb-10">
-                הסעות פרימיום במיניבוסים נוחים ומאובזרים, לעובדים, לאירועים ולנתב״ג. עמידה מלאה בזמנים, נהגים מקצועיים ושירות אישי שהופך כל נסיעה לחוויה.
+            <p class="text-lg text-slate-600 leading-relaxed mb-8 max-w-3xl mx-auto">
+                אם הזמנתם פעם הסעה ויצאתם בתחושת תסכול, אתם לא לבד. נהג שמאחר, רכב שלא מריח טוב, יחס קר… זה קורה יותר מדי פעמים, ואיפשהו בדרך שכחנו שנסיעה צריכה להיות פשוטה, נוחה ונעימה.
             </p>
 
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#contact-form" class="gold-button text-dark-900 font-black text-lg px-8 py-4 rounded-xl shadow-2xl flex items-center gap-3 w-full sm:w-auto justify-center group">
-                    <span>אני רוצה לקבל הצעת מחיר עכשיו</span>
-                    <i class="fa-solid fa-arrow-left transition-transform group-hover:-translate-x-1"></i>
-                </a>
-                <a href="https://wa.me/972587015470?text=שלום,%20אשמח%20לקבל%20הצעת%20מחיר%20להסעת%20VIP" target="_blank" class="bg-dark-700/80 hover:bg-dark-600 text-white border border-gold-500/30 hover:border-gold-500 font-bold text-lg px-8 py-4 rounded-xl transition w-full sm:w-auto justify-center flex items-center gap-3">
-                    <i class="fa-brands fa-whatsapp text-emerald-400 text-2xl"></i>
-                    <span>הודעה מהירה בוואטסאפ</span>
-                </a>
-            </div>
-
-            <!-- Vehicle Visual Badge -->
-            <div class="mt-16 relative max-w-4xl mx-auto rounded-2xl overflow-hidden border border-gold-500/30 shadow-2xl bg-dark-800 p-2">
-                <div class="relative h-64 sm:h-96 rounded-xl overflow-hidden bg-cover bg-center flex items-end justify-center" style="background-image: linear-gradient(to top, rgba(9,9,11,0.9), transparent), url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1200&auto=format&fit=crop');">
-                    <div class="p-6 text-center">
-                        <span class="text-gold-400 font-bold text-sm tracking-wider uppercase block mb-1">פליט הרכבים שלנו</span>
-                        <p class="text-white text-xl font-bold">מיניבוסים מפוארים עם מושבי עור, תאורת אווירה, W-Fi ומיזוג עוצמתי</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. Stats Bar / Counter Section -->
-    <section class="py-12 bg-dark-800 border-y border-gold-500/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x md:divide-x-reverse divide-gold-500/20">
-                <div class="pt-4 md:pt-0">
-                    <div class="text-4xl sm:text-5xl font-black gold-gradient-text mb-2 flex items-center justify-center gap-1">
-                        <span class="counter" data-target="15">0</span>
-                        <span>+</span>
-                    </div>
-                    <div class="text-gray-300 font-medium">שנות ניסיון מקצועי</div>
-                </div>
-                <div class="pt-4 md:pt-0">
-                    <div class="text-4xl sm:text-5xl font-black gold-gradient-text mb-2 flex items-center justify-center gap-1">
-                        <span class="counter" data-target="1200">0</span>
-                        <span>+</span>
-                    </div>
-                    <div class="text-gray-300 font-medium">נסיעות VIP מוצלחות</div>
-                </div>
-                <div class="pt-4 md:pt-0">
-                    <div class="text-4xl sm:text-5xl font-black gold-gradient-text mb-2 flex items-center justify-center gap-1">
-                        <span class="counter" data-target="98">0</span>
-                        <span>%</span>
-                    </div>
-                    <div class="text-gray-300 font-medium">שביעות רצון לקוחות</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. Story Section (Problem & Solution) -->
-    <section class="py-20 bg-dark-900 relative">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center mb-16">
-                <h2 class="text-2xl sm:text-4xl font-black text-white mb-4">
-                    לא צריך לבחור בין מחיר טוב לשירות טוב <span class="gold-gradient-text">כשאפשר את שניהם!</span>
-                </h2>
-                <div class="w-24 h-1 bg-gold-500 mx-auto rounded-full"></div>
-            </div>
-
-            <!-- Problem Card -->
-            <div class="bg-dark-800/60 border border-red-500/20 rounded-2xl p-6 sm:p-10 mb-10 shadow-xl backdrop-blur-sm relative overflow-hidden">
-                <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-red-500/5 rounded-full blur-2xl"></div>
-                <div class="flex items-start gap-4">
-                    <div class="w-12 h-12 rounded-full bg-red-500/10 text-red-400 flex items-center justify-center flex-shrink-0 text-xl">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-200 mb-3">מכירים את התחושה הזו?</h3>
-                        <p class="text-gray-300 text-lg leading-relaxed">
-                            אם הזמנתם פעם הסעה ויצאתם בתחושת תסכול, אתם לא לבד. נהג שמאחר, רכב שלא מריח טוב, יחס קר… זה קורה יותר מדי פעמים, ואיפשהו בדרך שכחנו שנסיעה צריכה להיות פשוטה, נוחה ונעימה.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Solution Highlight -->
-            <div class="bg-gradient-to-br from-dark-800 to-dark-700 border border-gold-500/40 rounded-2xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-2 h-full bg-gold-500"></div>
-                
-                <span class="inline-block px-3 py-1 bg-gold-500/20 text-gold-400 font-bold text-xs rounded mb-4">המהפכה שלנו</span>
-                <h3 class="text-3xl font-black text-white mb-6">
-                    בגוני תור החלטנו <span class="gold-gradient-text">לשנות את זה</span>
-                </h3>
-                
-                <p class="text-gray-300 text-lg leading-relaxed mb-6">
+            <div class="bg-slate-50 border-r-4 border-gold-400 p-8 rounded-2xl text-right max-w-4xl mx-auto shadow-sm my-10">
+                <h3 class="text-2xl font-bold text-navy-900 mb-3">בג'וני תור החלטנו לשנות את זה</h3>
+                <p class="text-slate-700 leading-relaxed text-lg">
                     ראינו איך חברות הסעות מאכזבות לקוחות, ולכן החלטנו לבנות שירות שעובד אחרת: כזה שמחזיר את השקט, האמון, והנוחות, כמו שמגיע לכם.
                 </p>
-
-                <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                    כשאתם בוחרים בנו, אתם לא מזמינים הסעה. <strong class="text-gold-300 font-semibold">אתם מזמינים חוויית נסיעה שלמה</strong> עם תיאום פשוט, שירות אישי והתחייבות להגעה בזמן. יש סיבה שיותר ויותר לקוחות בוחרים בנו פעם אחר פעם. לא בגלל המחיר, אלא בגלל מה שהם מרגישים בכל נסיעה.
-                </p>
-
-                <div class="bg-dark-900/80 p-6 rounded-xl border border-gold-500/20 text-gold-200 text-lg font-medium italic">
-                    "זו לא עוד נסיעה רגילה, זו חוויה שבה הכול פשוט עובד. הנהג שמגיע בדיוק בזמן, הרכב שממתין נקי, ממוזג ומוכן, והחיוך שמלווה אתכם מהרגע הראשון ועד היעד."
-                </div>
             </div>
 
+            <p class="text-lg text-slate-700 max-w-3xl mx-auto leading-relaxed">
+                כשאתם בוחרים בנו, אתם לא מזמינים הסעה — <strong>אתם מזמינים חוויית נסיעה שלמה</strong> עם תיאום פשוט, שירות אישי והתחייבות להגעה בזמן. יש סיבה שיותר ויותר לקוחות בוחרים בנו פעם אחר פעם. לא בגלל המחיר, אלא בגלל מה שהם מרגישים بكل נסיעה.
+            </p>
         </div>
     </section>
 
-    <!-- 5. Key Advantages Section -->
-    <section class="py-20 bg-dark-800/50 relative">
+    <!-- Experience Banner -->
+    <section class="bg-navy-900 text-white py-16 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h3 class="text-2xl sm:text-3xl font-bold mb-4">
+                זו לא עוד נסיעה רגילה, זו חוויה שבה הכול פשוט עובד.
+            </h3>
+            <p class="text-slate-300 text-lg max-w-2xl mx-auto">
+                הנהג שמגיע בדיוק בזמן, הרכב שממתין נקי, ממוזג ומוכן, והחיוך שמלווה אתכם מהרגע הראשון ועד היעד.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="features" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-5xl font-black text-white mb-4">
-                    מה הופך אותנו לשירות הסעות <span class="gold-gradient-text">שלא דומה לאף אחד אחר?</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900">
+                    מה הופך אותנו לשירות הסעות שלא דומה לאף אחד אחר?
                 </h2>
-                <p class="text-gray-300 text-lg">
-                    אצלנו כל נסיעה היא התחייבות לאיכות, אמינות ושקט נפשי. אנחנו מאמינים שנסיעה טובה מתחילה הרבה לפני שהמנוע נדלק, היא מתחילה בתכנון, ממשיכה בדיוק, ומסתיימת בחוויה שמרגישה פשוט נכונה.
+                <p class="text-slate-600 mt-4 text-lg">
+                    אצלנו כל נסיעה היא התחייבות לאיכות, אמינות ושקט נפשי. אנחנו מאמינים שנסיעה טובה מתחילה הרבה לפני שהמנוע נדלק — היא מתחילה בתכנון, ממשיכה בדיוק, ומסתיימת בחוויה שמרגישה פשוט נכונה.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Advantage 1 -->
-                <div class="bg-dark-800 p-8 rounded-2xl border border-gold-500/20 hover:border-gold-500 transition-all duration-300 hover:-translate-y-2 group shadow-xl">
-                    <div class="w-16 h-16 rounded-2xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-3xl mb-6 group-hover:bg-gold-500 group-hover:text-dark-900 transition-colors">
+                
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl transition-shadow text-center">
+                    <div class="w-16 h-16 bg-gold-400/10 text-gold-500 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
                         <i class="fa-solid fa-clock"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">זמינות מלאה</h3>
-                    <p class="text-gray-400 leading-relaxed">
-                        יום, לילה, שבת או חג, תמיד יש מי שעונה, מתאם ומוודא שהכול מתקתק כמו שעון. <strong>24/7 זמינים עבורכם.</strong>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">זמינות מלאה</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        יום, לילה, שבת או חג, תמיד יש מי שעונה, מתאם ומוודא שהכול מתקתק כמו שעון. 24/7 זמינים עבורכם.
                     </p>
                 </div>
 
-                <!-- Advantage 2 -->
-                <div class="bg-dark-800 p-8 rounded-2xl border border-gold-500/20 hover:border-gold-500 transition-all duration-300 hover:-translate-y-2 group shadow-xl">
-                    <div class="w-16 h-16 rounded-2xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-3xl mb-6 group-hover:bg-gold-500 group-hover:text-dark-900 transition-colors">
-                        <i class="fa-solid fa-sparkles"></i>
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl transition-shadow text-center">
+                    <div class="w-16 h-16 bg-gold-400/10 text-gold-500 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fa-solid fa-bus"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">צי חדשני</h3>
-                    <p class="text-gray-400 leading-relaxed">
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">צי חדשני</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
                         כל מיניבוס עובר ניקוי, חיטוי ובדיקה לפני כל נסיעה, כדי שכל נסיעה תרגיש כמו הנסיעה הראשונה.
                     </p>
                 </div>
 
-                <!-- Advantage 3 -->
-                <div class="bg-dark-800 p-8 rounded-2xl border border-gold-500/20 hover:border-gold-500 transition-all duration-300 hover:-translate-y-2 group shadow-xl">
-                    <div class="w-16 h-16 rounded-2xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-3xl mb-6 group-hover:bg-gold-500 group-hover:text-dark-900 transition-colors">
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl transition-shadow text-center">
+                    <div class="w-16 h-16 bg-gold-400/10 text-gold-500 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
                         <i class="fa-solid fa-bullseye"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">דיוק מוחלט</h3>
-                    <p class="text-gray-400 leading-relaxed">
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">דיוק מוחלט</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
                         אצלנו “בדיוק בזמן” זה לא הבטחה, זו דרך עבודה. הנהג שלכם יהיה שם תמיד לחכות לכם כשתגיעו.
                     </p>
                 </div>
 
-                <!-- Advantage 4 -->
-                <div class="bg-dark-800 p-8 rounded-2xl border border-gold-500/20 hover:border-gold-500 transition-all duration-300 hover:-translate-y-2 group shadow-xl">
-                    <div class="w-16 h-16 rounded-2xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-3xl mb-6 group-hover:bg-gold-500 group-hover:text-dark-900 transition-colors">
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl transition-shadow text-center">
+                    <div class="w-16 h-16 bg-gold-400/10 text-gold-500 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
                         <i class="fa-solid fa-user-tie"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">שירות אישי</h3>
-                    <p class="text-gray-400 leading-relaxed">
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">שירות אישי</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
                         אנחנו לא שולחים סתם “נהג”, אנחנו שולחים בן אדם שמבין אותך ואת הצרכים שלך.
                     </p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- 6. Our Services Section -->
-    <section class="py-20 bg-dark-900">
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-gold-400 font-bold uppercase tracking-widest text-sm">הפתרונות שלנו</span>
-                <h2 class="text-3xl sm:text-5xl font-black text-white mt-2 mb-4">
-                    השירות שלנו נבנה <span class="gold-gradient-text">בדיוק בשבילכם</span>
+                <span class="text-gold-600 font-bold tracking-wide uppercase text-sm">פתרונות הניידות שלנו</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-2">
+                    השירות שלנו נבנה בדיוק בשבילכם
                 </h2>
-                <p class="text-gray-300 text-lg">
+                <p class="text-slate-600 mt-4 text-lg">
                     אם אתם מחפשים הסעה שלא רק תגיע בזמן, אלא תגרום לכם להרגיש רגועים, אתם במקום הנכון. לא משנה אם זו נסיעה לעבודה, טיסה מוקדמת או יום חתונה, אנחנו כאן כדי לוודא שתגיעו בזמן, בנוחות ובחיוך.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-dark-800/80 border border-gold-500/20 rounded-2xl p-8 flex flex-col sm:flex-row gap-6 hover:border-gold-500/60 transition">
-                    <div class="w-16 h-16 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-3xl flex-shrink-0">
+                
+                <div class="border border-slate-200 rounded-2xl p-8 hover:border-gold-400 transition-all shadow-sm hover:shadow-md flex items-start gap-5">
+                    <div class="bg-navy-900 text-gold-400 p-4 rounded-xl text-2xl flex-shrink-0">
+                        <i class="fa-solid fa-plane-departure"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-2">הגעה וחזרה לנתב״ג</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            מתחילים את הנסיעה בראש שקט. אנחנו נגיע בזמן, נעזור עם הציוד ונוודא שכל פרט קטן מתוקתק.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl p-8 hover:border-gold-400 transition-all shadow-sm hover:shadow-md flex items-start gap-5">
+                    <div class="bg-navy-900 text-gold-400 p-4 rounded-xl text-2xl flex-shrink-0">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-2">הסעות עובדים</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            פתרון אמין, מסודר ומקצועי לעובדים שלכם. עם עמידה קבועה בזמנים, רכבים חדשים ונהגים קבועים.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl p-8 hover:border-gold-400 transition-all shadow-sm hover:shadow-md flex items-start gap-5">
+                    <div class="bg-navy-900 text-gold-400 p-4 rounded-xl text-2xl flex-shrink-0">
                         <i class="fa-solid fa-users"></i>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-bold text-white mb-2">קבוצות פרטיות</h3>
-                        <p class="text-gray-300 leading-relaxed">
+                        <h3 class="text-xl font-bold text-navy-900 mb-2">קבוצות פרטיות</h3>
+                        <p class="text-slate-600 leading-relaxed">
                             טיולים, ימי כיף, חופשות משפחתיות או סופי שבוע עם חברים, אנחנו נדאג שתיהנו מהדרך לא פחות מהיעד.
                         </p>
                     </div>
                 </div>
 
-                <!-- Service 2 -->
-                <div class="bg-dark-800/80 border border-gold-500/20 rounded-2xl p-8 flex flex-col sm:flex-row gap-6 hover:border-gold-500/60 transition">
-                    <div class="w-16 h-16 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-3xl flex-shrink-0">
+                <div class="border border-slate-200 rounded-2xl p-8 hover:border-gold-400 transition-all shadow-sm hover:shadow-md flex items-start gap-5">
+                    <div class="bg-navy-900 text-gold-400 p-4 rounded-xl text-2xl flex-shrink-0">
                         <i class="fa-solid fa-champagne-glasses"></i>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-bold text-white mb-2">אירועים מרגשים</h3>
-                        <p class="text-gray-300 leading-relaxed">
+                        <h3 class="text-xl font-bold text-navy-900 mb-2">אירועים מרגשים</h3>
+                        <p class="text-slate-600 leading-relaxed">
                             פרטיים או עסקיים הדורשים הגעה נוחה ומאורגנת. כדי שכולם יגיעו בזמן, רגועים ומוכנים לרגע הגדול.
                         </p>
                     </div>
                 </div>
 
-                <!-- Service 3 -->
-                <div class="bg-dark-800/80 border border-gold-500/20 rounded-2xl p-8 flex flex-col sm:flex-row gap-6 hover:border-gold-500/60 transition">
-                    <div class="w-16 h-16 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-3xl flex-shrink-0">
-                        <i class="fa-solid fa-plane-departure"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-2">הגעה וחזרה לנתב״ג</h3>
-                        <p class="text-gray-300 leading-relaxed">
-                            מתחילים את הנסיעה בראש שקט, אנחנו נגיע בזמן, נעזור עם הציוד ונוודא שכל פרט קטן מתוקתק.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="bg-dark-800/80 border border-gold-500/20 rounded-2xl p-8 flex flex-col sm:flex-row gap-6 hover:border-gold-500/60 transition">
-                    <div class="w-16 h-16 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-3xl flex-shrink-0">
-                        <i class="fa-solid fa-briefcase"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-2">הסעות עובדים</h3>
-                        <p class="text-gray-300 leading-relaxed">
-                            פתרון אמין, מסודר ומקצועי לעובדים שלכם. עם עמידה קבועה בזמנים, רכבים חדשים ונהגים קבועים.
-                        </p>
-                    </div>
-                </div>
             </div>
 
-            <div class="mt-12 text-center">
-                <a href="#contact-form" class="gold-button text-dark-900 font-black text-lg px-8 py-4 rounded-xl inline-flex items-center gap-3 shadow-2xl">
-                    <span>אני רוצה לקבל הצעת מחיר עכשיו</span>
-                    <i class="fa-solid fa-arrow-left"></i>
+            <div class="text-center mt-12">
+                <a href="#quote-form" class="inline-block gold-gradient text-navy-900 font-bold px-8 py-4 rounded-full text-lg shadow-lg hover:opacity-90 transition-all">
+                    אני רוצה לקבל הצעת מחיר עכשיו
                 </a>
             </div>
-
         </div>
     </section>
 
-    <!-- 7. Testimonials Section -->
-    <section class="py-20 bg-dark-800 relative overflow-hidden">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-5xl font-black text-white mb-4">
-                    אלפי נוסעים כבר בחרו בנו <span class="gold-gradient-text">וזה לא במקרה</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900">
+                    אלפי נוסעים כבר בחרו בנו וזה לא במקרה
                 </h2>
-                <p class="text-gray-300 text-lg">
+                <p class="text-slate-600 mt-4 text-lg">
                     אנחנו יכולים לספר הרבה על השירות שלנו, אבל האמת? הלקוחות שלנו עושים את זה הרבה יותר טוב מאיתנו.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Review 1 -->
-                <div class="bg-dark-900 p-6 rounded-2xl border border-gold-500/20 flex flex-col justify-between relative">
-                    <div class="text-gold-400 text-sm mb-3">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-300 leading-relaxed mb-6 italic">
-                        “אחרי כמה אכזבות מחברות הסעות אחרות סוף סוף מצאתי מישהו שאפשר לסמוך עליו. הגיעו בזמן, הרכב היה מצוחצח, והנהג היה פשוט מקסים. שירות כמו שצריך.״
+                
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <p class="text-slate-700 italic mb-6 leading-relaxed">
+                        “אחרי כמה אכזבות מחברות הסעות אחרות סוף סוף מצאתי מישהו שאפשר לסמוך עליו. הגיעו בזמן, הרכב היה מצוחצח, והנהג היה פשוט מקסים. שירות כמו שצריך.”
                     </p>
-                    <div>
-                        <div class="font-bold text-white text-lg">לירון ד.</div>
-                        <div class="text-gold-400 text-sm">רמת השרון</div>
+                    <div class="border-t border-slate-100 pt-4">
+                        <div class="font-bold text-navy-900">לירון ד.</div>
+                        <div class="text-xs text-slate-500">רמת השרון</div>
                     </div>
                 </div>
 
-                <!-- Review 2 -->
-                <div class="bg-dark-900 p-6 rounded-2xl border border-gold-500/20 flex flex-col justify-between relative">
-                    <div class="text-gold-400 text-sm mb-3">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-300 leading-relaxed mb-6 italic">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <p class="text-slate-700 italic mb-6 leading-relaxed">
                         “אני מזמין מהם הסעות עובדים כבר כמעט שנה, לא איחרו אפילו פעם אחת. היחס אישי, התקשורת קלה, והכול עובד כמו שעון. ממליץ בחום לכל עסק שרוצה שקט בראש.”
                     </p>
-                    <div>
-                        <div class="font-bold text-white text-lg">יוסי ב.</div>
-                        <div class="text-gold-400 text-sm">מנהל תפעול, תל אביב</div>
+                    <div class="border-t border-slate-100 pt-4">
+                        <div class="font-bold text-navy-900">יוסי ב.</div>
+                        <div class="text-xs text-slate-500">מנהל תפעול, תל אביב</div>
                     </div>
                 </div>
 
-                <!-- Review 3 -->
-                <div class="bg-dark-900 p-6 rounded-2xl border border-gold-500/20 flex flex-col justify-between relative">
-                    <div class="text-gold-400 text-sm mb-3">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-300 leading-relaxed mb-6 italic">
-                        “הזמנו הסעה לחתונה של הבת שלי והכול היה מושלם. הגיעו בזמן, הרכב היה נעים ונקי, והנהג היה סבלני ורגוע. הכל היה פשוט ללא בעיות, אני ממליצה!.”
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <p class="text-slate-700 italic mb-6 leading-relaxed">
+                        “הזמנו הסעה לחתונה של הבת שלי והכול היה מושלם. הגיעו בזמן, הרכב היה נעים ונקי, והנהג היה סבלני ורגוע. הכל היה פשוט ללא בעיות, אני ממליצה!”
                     </p>
-                    <div>
-                        <div class="font-bold text-white text-lg">חנה ל.</div>
-                        <div class="text-gold-400 text-sm">ראשון לציון</div>
+                    <div class="border-t border-slate-100 pt-4">
+                        <div class="font-bold text-navy-900">חנה ל.</div>
+                        <div class="text-xs text-slate-500">ראשון לציון</div>
                     </div>
                 </div>
 
-                <!-- Review 4 -->
-                <div class="bg-dark-900 p-6 rounded-2xl border border-gold-500/20 flex flex-col justify-between relative">
-                    <div class="text-gold-400 text-sm mb-3">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-300 leading-relaxed mb-6 italic">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <p class="text-slate-700 italic mb-6 leading-relaxed">
                         “יצאתי לנסיעה לנתב״ג בארבע בבוקר, הנהג חיכה למטה בדיוק בדקה שקבענו. רכב חדש, נקי, מוזיקה, ואפילו בקבוק מים מוכן. מרגישים שהם באמת חושבים על כל פרט.”
                     </p>
-                    <div>
-                        <div class="font-bold text-white text-lg">עידן ר.</div>
-                        <div class="text-gold-400 text-sm">הרצליה</div>
+                    <div class="border-t border-slate-100 pt-4">
+                        <div class="font-bold text-navy-900">עידן ר.</div>
+                        <div class="text-xs text-slate-500">הרצליה</div>
                     </div>
                 </div>
 
-                <!-- Review 5 -->
-                <div class="bg-dark-900 p-6 rounded-2xl border border-gold-500/20 flex flex-col justify-between relative">
-                    <div class="text-gold-400 text-sm mb-3">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-300 leading-relaxed mb-6 italic">
-                        “אני מפיקה אירועים, ועבדתי עם עשרות חברות הסעות. אף אחת לא הייתה מדויקת, רגועה ושירותית כמו גוני תור. הם מתאמים הכול מראש, תמיד זמינים, ותמיד עם חיוך.”
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <p class="text-slate-700 italic mb-6 leading-relaxed">
+                        “אני מפיקה אירועים, ועבדתי עם עשרות חברות הסעות. אף אחת לא הייתה מדויקת, רגועה ושירותית כמו ג'וני תור. הם מתאמים הכול מראש, תמיד זמינים, ותמיד עם חיוך.”
                     </p>
-                    <div>
-                        <div class="font-bold text-white text-lg">שני מ.</div>
-                        <div class="text-gold-400 text-sm">הפקות אירועים, תל אביב</div>
+                    <div class="border-t border-slate-100 pt-4">
+                        <div class="font-bold text-navy-900">שני מ.</div>
+                        <div class="text-xs text-slate-500">הפקות אירועים, תל אביב</div>
                     </div>
                 </div>
 
-                <!-- Review 6 -->
-                <div class="bg-dark-900 p-6 rounded-2xl border border-gold-500/20 flex flex-col justify-between relative">
-                    <div class="text-gold-400 text-sm mb-3">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-300 leading-relaxed mb-6 italic">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <p class="text-slate-700 italic mb-6 leading-relaxed">
                         “עשינו יום גיבוש עם הצוות וההסעה הייתה חלק בלתי נפרד מהחוויה. נהג מקצועי, רכב מפנק, הכול בזמן ובאווירה טובה. כבר סגרנו איתם את הנסיעה הבאה.”
                     </p>
-                    <div>
-                        <div class="font-bold text-white text-lg">רועי ש.</div>
-                        <div class="text-gold-400 text-sm">מנהל צוות, מודיעין</div>
+                    <div class="border-t border-slate-100 pt-4">
+                        <div class="font-bold text-navy-900">רועי ש.</div>
+                        <div class="text-xs text-slate-500">מנהל צוות, מודיעין</div>
                     </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- 8. Contact / Quote Lead Form -->
-    <section id="contact-form" class="py-20 bg-gradient-to-b from-dark-900 to-dark-800 relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-dark-800 border-2 border-gold-500/40 rounded-3xl p-8 sm:p-12 shadow-2xl relative">
-                
-                <div class="text-center mb-10">
-                    <span class="text-gold-400 font-bold uppercase text-xs tracking-widest">מבצע VIP - 30% הנחה</span>
-                    <h2 class="text-3xl sm:text-5xl font-black text-white mt-1 mb-3">
-                        קבלו הצעת מחיר <span class="gold-gradient-text">עכשיו</span>
-                    </h2>
-                    <p class="text-gray-300">מלאו את הפרטים ונחזור אליכם תוך דקות ספורות עם הצעה משתלמת!</p>
-                </div>
-
-                <form id="leadForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-gray-300 font-medium mb-2 text-sm">שם מלא *</label>
-                            <input type="text" required placeholder="ישראל ישראלי" class="w-full bg-dark-900 border border-gold-500/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition">
-                        </div>
-                        <div>
-                            <label class="block text-gray-300 font-medium mb-2 text-sm">מספר טלפון *</label>
-                            <input type="tel" required placeholder="058-701-5470" class="w-full bg-dark-900 border border-gold-500/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-gray-300 font-medium mb-2 text-sm">סוג השירות</label>
-                            <select class="w-full bg-dark-900 border border-gold-500/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition">
-                                <option value="נתבג">הסעה לנתב״ג / מנתב״ג</option>
-                                <option value="אירוע">הסעה לאירוע / חתונה</option>
-                                <option value="עובדים">הסעות עובדים קבועות</option>
-                                <option value="פרטי">קבוצה פרטית / טיול</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-gray-300 font-medium mb-2 text-sm">מספר נוסעים משוער</label>
-                            <input type="number" min="1" max="50" placeholder="למשל: 12" class="w-full bg-dark-900 border border-gold-500/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-gray-300 font-medium mb-2 text-sm">פרטים נוספים (תאריך, מוצא, יעד)</label>
-                        <textarea rows="3" placeholder="נשמח שתפרטו מעט על הנסיעה המבוקשת..." class="w-full bg-dark-900 border border-gold-500/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition"></textarea>
-                    </div>
-
-                    <button type="submit" class="w-full gold-button text-dark-900 font-black text-xl py-4 rounded-xl shadow-2xl flex items-center justify-center gap-3">
-                        <span>שליחת בקשה להצעת מחיר</span>
-                        <i class="fa-solid fa-paper-plane"></i>
-                    </button>
-                </form>
-
-                <!-- Feedback Message -->
-                <div id="formSuccess" class="hidden mt-6 bg-emerald-500/20 border border-emerald-500 text-emerald-300 p-4 rounded-xl text-center font-bold">
-                    <i class="fa-solid fa-circle-check text-2xl mb-1 block"></i>
-                    פנייתך התקבלה בהצלחה! נציג ג'וני תור יצור עמך קשר בדקות הקרובות.
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark-900 border-t border-gold-500/20 py-8 text-center text-gray-400 text-sm">
-        <div class="max-w-7xl mx-auto px-4">
-            <p>© כל הזכויות שמורות לג'וני תור (Johnny Tour) - חווית VIP על גלגלים.</p>
+    <!-- Footer / Final CTA -->
+    <footer class="bg-navy-900 text-white py-12 border-t border-navy-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="text-3xl font-extrabold mb-4">ג'וני <span class="text-gold-400">תור</span></div>
+            <p class="text-slate-400 max-w-md mx-auto text-sm mb-6">
+                שירותי הסעות VIP, מיניבוסים מפוארים, עמידה בזמנים ושירות פרימיום מכל הלב.
+            </p>
+            <div class="text-xs text-slate-500">
+                © כל הזכויות שמורות לג'וני תור.
+            </div>
         </div>
     </footer>
 
-    <!-- Floating Promo Tag on Bottom Right with bouncing animation and green hover -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <a href="https://nn-sites.github.io/NetVibeMedia/" target="_blank" rel="noopener noreferrer" class="promo-tag animate-float bg-gradient-to-r from-gold-500 to-gold-600 text-dark-900 font-black px-5 py-3 rounded-2xl shadow-2xl border-2 border-white/20 flex items-center gap-3 cursor-pointer group">
-            <div class="flex flex-col text-right">
-                <span class="text-xs uppercase font-bold tracking-wider opacity-90">רוצים גם אתר כזה?</span>
-                <span class="text-sm sm:text-base font-extrabold leading-tight">לחצו כאן!</span>
-            </div>
-            <div class="w-8 h-8 rounded-full bg-dark-900/20 flex items-center justify-center group-hover:translate-x-[-3px] transition-transform">
-                <i class="fa-solid fa-arrow-left text-lg"></i>
-            </div>
-        </a>
-    </div>
-
-    <!-- Comprehensive Accessibility Menu & Toggle Button (Bottom Left) -->
-    <div class="fixed bottom-6 left-6 z-50">
-        <!-- Accessibility Toggle Button -->
-        <button id="accessBtn" onclick="toggleAccessMenu()" aria-label="תפריט נגישות" class="w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-2xl flex items-center justify-center text-2xl transition border-2 border-white focus:outline-none">
-            <i class="fa-solid fa-universal-access"></i>
-        </button>
-
-        <!-- Accessibility Widget Panel -->
-        <div id="accessMenu" class="hidden absolute bottom-16 left-0 w-80 bg-dark-800 border-2 border-gold-500 rounded-2xl shadow-2xl p-5 text-right z-50 text-white">
-            <div class="flex justify-between items-center border-b border-gray-700 pb-3 mb-4">
-                <h3 class="font-bold text-lg text-gold-400 flex items-center gap-2">
-                    <i class="fa-solid fa-universal-access"></i>
-                    <span>התאמת נגישות</span>
-                </h3>
-                <button onclick="toggleAccessMenu()" class="text-gray-400 hover:text-white text-xl">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-
-            <div class="grid grid-cols-2 gap-2 text-xs font-medium">
-                <button onclick="accessAction('zoomIn')" class="bg-dark-700 hover:bg-gold-500 hover:text-dark-900 p-2.5 rounded-lg border border-gray-600 flex items-center gap-2">
-                    <i class="fa-solid fa-magnifying-glass-plus"></i> הגדלת פונט
-                </button>
-                <button onclick="accessAction('zoomOut')" class="bg-dark-700 hover:bg-gold-500 hover:text-dark-900 p-2.5 rounded-lg border border-gray-600 flex items-center gap-2">
-                    <i class="fa-solid fa-magnifying-glass-minus"></i> הקטנת פונט
-                </button>
-                <button onclick="accessAction('highContrast')" class="bg-dark-700 hover:bg-gold-500 hover:text-dark-900 p-2.5 rounded-lg border border-gray-600 flex items-center gap-2">
-                    <i class="fa-solid fa-circle-half-stroke"></i> ניגודיות גבוהה
-                </button>
-                <button onclick="accessAction('invert')" class="bg-dark-700 hover:bg-gold-500 hover:text-dark-900 p-2.5 rounded-lg border border-gray-600 flex items-center gap-2">
-                    <i class="fa-solid fa-eye"></i> ניגודיות הפוכה
-                </button>
-                <button onclick="accessAction('grayscale')" class="bg-dark-700 hover:bg-gold-500 hover:text-dark-900 p-2.5 rounded-lg border border-gray-600 flex items-center gap-2">
-                    <i class="fa-solid fa-palette"></i> גווני אפור
-                </button>
-                <button onclick="accessAction('readableFont')" class="bg-dark-700 hover:bg-gold-500 hover:text-dark-900 p-2.5 rounded-lg border border-gray-600 flex items-center gap-2">
-                    <i class="fa-solid fa-font"></i> פונט קריא
-                </button>
-                <button onclick="accessAction('highlightLinks')" class="bg-dark-700 hover:bg-gold-500 hover:text-dark-900 p-2.5 rounded-lg border border-gray-600 flex items-center gap-2">
-                    <i class="fa-solid fa-link"></i> הדגשת קישורים
-                </button>
-                <button onclick="accessAction('bigCursor')" class="bg-dark-700 hover:bg-gold-500 hover:text-dark-900 p-2.5 rounded-lg border border-gray-600 flex items-center gap-2">
-                    <i class="fa-solid fa-arrow-pointer"></i> סמן מוגדל
-                </button>
-                <button onclick="accessAction('stopAnimations')" class="bg-dark-700 hover:bg-gold-500 hover:text-dark-900 p-2.5 rounded-lg border border-gray-600 flex items-center gap-2 col-span-2">
-                    <i class="fa-solid fa-pause"></i> עצירת אנימציות
-                </button>
-            </div>
-
-            <button onclick="resetAccess()" class="w-full mt-4 bg-red-600/80 hover:bg-red-600 text-white py-2 rounded-lg font-bold text-xs flex items-center justify-center gap-2">
-                <i class="fa-solid fa-rotate-left"></i> איפוס הגדרות נגישות
-            </button>
+    <!-- Floating Badge -->
+    <a href="https://did.li/NetVibeWebsites" target="_blank" class="floating-badge">
+        <span class="badge-dot"></span>
+        <div class="badge-content">
+            <span class="badge-title">רוצים גם אתר כזה?</span>
+            <span class="badge-action">לחצו כאן!</span>
         </div>
-    </div>
+    </a>
 
-    <!-- JavaScript Section -->
-    <script>
-        // 1. Accessibility Actions Logic
-        let fontSizeLevel = 100;
-
-        function toggleAccessMenu() {
-            const menu = document.getElementById('accessMenu');
-            menu.classList.toggle('hidden');
-        }
-
-        function accessAction(action) {
-            const body = document.body;
-            switch(action) {
-                case 'zoomIn':
-                    if (fontSizeLevel < 130) {
-                        fontSizeLevel += 5;
-                        body.style.fontSize = fontSizeLevel + '%';
-                    }
-                    break;
-                case 'zoomOut':
-                    if (fontSizeLevel > 85) {
-                        fontSizeLevel -= 5;
-                        body.style.fontSize = fontSizeLevel + '%';
-                    }
-                    break;
-                case 'highContrast':
-                    body.classList.toggle('access-high-contrast');
-                    break;
-                case 'invert':
-                    body.classList.toggle('access-inverted');
-                    break;
-                case 'grayscale':
-                    body.classList.toggle('access-grayscale');
-                    break;
-                case 'readableFont':
-                    body.classList.toggle('access-readable-font');
-                    break;
-                case 'highlightLinks':
-                    body.classList.toggle('access-highlight-links');
-                    break;
-                case 'bigCursor':
-                    body.classList.toggle('access-big-cursor');
-                    break;
-                case 'stopAnimations':
-                    body.classList.toggle('stop-animations');
-                    break;
-            }
-        }
-
-        function resetAccess() {
-            const body = document.body;
-            fontSizeLevel = 100;
-            body.style.fontSize = '100%';
-            body.className = "relative min-h-screen";
-        }
-
-        // 2. Animated Counter Logic
-        function startCounters() {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                let count = 0;
-                const speed = target / 50; // speed denominator
-
-                const updateCount = () => {
-                    count += speed;
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count);
-                        setTimeout(updateCount, 30);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
-                updateCount();
-            });
-        }
-
-        // Trigger counters on scroll
-        let counted = false;
-        window.addEventListener('scroll', () => {
-            const statsSection = document.querySelector('.counter');
-            if (statsSection) {
-                const position = statsSection.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight;
-                if (position < screenPosition && !counted) {
-                    startCounters();
-                    counted = true;
-                }
-            }
-        });
-
-        // 3. Lead Form Handler
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            document.getElementById('leadForm').reset();
-            const successMsg = document.getElementById('formSuccess');
-            successMsg.classList.remove('hidden');
-            setTimeout(() => {
-                successMsg.classList.add('hidden');
-            }, 6000);
-        }
-
-        // Initialize counters on load if visible
-        window.onload = function() {
-            startCounters();
-        };
-    </script>
 </body>
 </html>

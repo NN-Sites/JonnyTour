@@ -195,28 +195,28 @@
                 <div id="quote-form" class="lg:col-span-5">
                     <div class="bg-white text-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl border-t-4 border-gold-400">
                         <h3 class="text-2xl font-bold text-navy-900 mb-2 text-center">קבלת הצעת מחיר עכשיו</h3>
-                        <p class="text-slate-500 text-sm text-center mb-6">מלאו את הפרטים ונחזור אליכם תוך דקות</p>
+                        <p class="text-slate-500 text-sm text-center mb-6">מלאו את הפרטים ושלחו ישירות לוואטסאפ שלנו</p>
                         
-                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('תודה! פרטיך התקבלו, נחזור אליך בהקדם.');">
+                        <form id="whatsappForm" class="space-y-4">
                             <div>
                                 <label class="block text-sm font-semibold mb-1 text-slate-700">שם מלא</label>
-                                <input type="text" required placeholder="ישראל ישראלי" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-gold-400 focus:outline-none text-slate-800">
+                                <input type="text" id="clientName" required placeholder="ישראל ישראלי" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-gold-400 focus:outline-none text-slate-800">
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold mb-1 text-slate-700">מספר טלפון</label>
-                                <input type="tel" required placeholder="050-0000000" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-gold-400 focus:outline-none text-slate-800">
+                                <input type="tel" id="clientPhone" required placeholder="050-0000000" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-gold-400 focus:outline-none text-slate-800">
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold mb-1 text-slate-700">סוג השירות</label>
-                                <select class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-gold-400 focus:outline-none text-slate-800 bg-white">
-                                    <option>הסעה לנתב״ג</option>
-                                    <option>הסעות עובדים</option>
-                                    <option>אירועים מרגשים</option>
-                                    <option>קבוצות פרטיות וטיולים</option>
+                                <select id="clientService" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-gold-400 focus:outline-none text-slate-800 bg-white">
+                                    <option value="הסעה לנתב״ג">הסעה לנתב״ג</option>
+                                    <option value="הסעות עובדים">הסעות עובדים</option>
+                                    <option value="אירועים מרגשים">אירועים מרגשים</option>
+                                    <option value="קבוצות פרטיות וטיולים">קבוצות פרטיות וטיולים</option>
                                 </select>
                             </div>
-                            <button type="submit" class="w-full gold-gradient text-navy-900 text-lg font-bold py-3.5 rounded-lg hover:opacity-95 transition-all shadow-md mt-2">
-                                אני רוצה לקבל הצעת מחיר עכשיו! ⚡
+                            <button type="submit" class="w-full gold-gradient text-navy-900 text-lg font-bold py-3.5 rounded-lg hover:opacity-95 transition-all shadow-md mt-2 flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-xl"></i> אני רוצה לקבל הצעת מחיר עכשיו!
                             </button>
                         </form>
                     </div>
@@ -246,7 +246,7 @@
             </div>
 
             <p class="text-lg text-slate-700 max-w-3xl mx-auto leading-relaxed">
-                כשאתם בוחרים בנו, אתם לא מזמינים הסעה — <strong>אתם מזמינים חוויית נסיעה שלמה</strong> עם תיאום פשוט, שירות אישי והתחייבות להגעה בזמן. יש סיבה שיותר ויותר לקוחות בוחרים בנו פעם אחר פעם. לא בגלל המחיר, אלא בגלל מה שהם מרגישים بكل נסיעה.
+                כשאתם בוחרים בנו, אתם לא מזמינים הסעה — <strong>אתם מזמינים חוויית נסיעה שלמה</strong> עם תיאום פשוט, שירות אישי והתחייבות להגעה בזמן. יש סיבה שיותר ויותר לקוחות בוחרים בנו פעם אחר פעם. לא בגלל המחיר, אלא בגלל מה שהם מרגישים בכל נסיעה.
             </p>
         </div>
     </section>
@@ -486,13 +486,31 @@
     </footer>
 
     <!-- Floating Badge -->
-    <a href="https://nn-sites.github.io/NetVibeMedia/" target="_blank" class="floating-badge">
+    <a href="https://did.li/NetVibeWebsites" target="_blank" class="floating-badge">
         <span class="badge-dot"></span>
         <div class="badge-content">
             <span class="badge-title">רוצים גם אתר כזה?</span>
             <span class="badge-action">לחצו כאן!</span>
         </div>
     </a>
+
+    <!-- WhatsApp Form Script -->
+    <script>
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('clientName').value.trim();
+            const phone = document.getElementById('clientPhone').value.trim();
+            const service = document.getElementById('clientService').value;
+            
+            const message = `היי, הגעתי דרך דף הנחיתה ואני מעוניין בהצעת מחיר:\n\n👤 שם: ${name}\n📞 טלפון: ${phone}\n🚐 סוג שירות: ${service}`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/972587015470?text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
 
 </body>
 </html>
